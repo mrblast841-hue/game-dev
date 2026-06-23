@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ylx1p57yo807"]
+
+[ext_resource type="Script" uid="uid://ba6kpgmnd71ol" path="res://main/scripts/enemy.gd" id="1_7tfx0"]
+[ext_resource type="Script" uid="uid://8skiirlwtufm" path="res://main/scripts/polygon_2d.gd" id="2_jq4ff"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oo0cl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7tfx0"]
+
+[node name="Enemy" type="Area2D"]
+visibility_layer = 2
+collision_layer = 2
+script = ExtResource("1_7tfx0")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0.09019608, 0.1882353, 1)
+polygon = PackedVector2Array(16, 0, 15.454813, 4.1411047, 13.856406, 8, 11.313708, 11.313708, 8, 13.856406, 4.1411047, 15.454813, 9.796851e-16, 16, -4.1411047, 15.454813, -8, 13.856406, -11.313708, 11.313708, -13.856406, 8, -15.454813, 4.1411047, -16, 1.9593702e-15, -15.454813, -4.1411047, -13.856406, -8, -11.313708, -11.313708, -8, -13.856406, -4.1411047, -15.454813, -2.9390552e-15, -16, 4.1411047, -15.454813, 8, -13.856406, 11.313708, -11.313708, 13.856406, -8, 15.454813, -4.1411047)
+uv = PackedVector2Array(6, 8, 9, 4, 10, 0, 9, -4, 7, -7, 4, -9, -1, -10, -7, -7, -9, -4, -10, -1, -9, 4, -6, 8, 0, 10)
+script = ExtResource("2_jq4ff")
+radius = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 2
+shape = SubResource("CircleShape2D_oo0cl")
+
+[node name="separation_area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="separation_area"]
+light_mask = 4
+visibility_layer = 4
+shape = SubResource("CircleShape2D_7tfx0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

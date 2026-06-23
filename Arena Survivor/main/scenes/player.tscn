@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dirvrg14p6fin"]
+
+[ext_resource type="Script" uid="uid://cqdtqo18v3xmk" path="res://main/scripts/player.gd" id="1_u8ag1"]
+[ext_resource type="Script" uid="uid://b63batbeakt3s" path="res://main/scripts/circle.gd" id="2_vq0uc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vq0uc"]
+radius = 16.0
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(1, 0)
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_u8ag1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+shape = SubResource("CircleShape2D_vq0uc")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 1, 1, 1)
+polygon = PackedVector2Array(16, 0, 15.454813, 4.1411047, 13.856406, 8, 11.313708, 11.313708, 8, 13.856406, 4.1411047, 15.454813, 9.796851e-16, 16, -4.1411047, 15.454813, -8, 13.856406, -11.313708, 11.313708, -13.856406, 8, -15.454813, 4.1411047, -16, 1.9593702e-15, -15.454813, -4.1411047, -13.856406, -8, -11.313708, -11.313708, -8, -13.856406, -4.1411047, -15.454813, -2.9390552e-15, -16, 4.1411047, -15.454813, 8, -13.856406, 11.313708, -11.313708, 13.856406, -8, 15.454813, -4.1411047)
+uv = PackedVector2Array(-401, -22, -298, 2, -161, -17, -11, -6, 90, -8, 61, -40, -141, -40, -253, -28, -320, -4, -343, 23, -243, 47, 86, 50, 198, 30, 254, 9)
+script = ExtResource("2_vq0uc")

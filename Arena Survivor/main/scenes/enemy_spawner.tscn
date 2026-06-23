@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqljt0xfb4jv2"]
+
+[ext_resource type="Script" uid="uid://gn2u0d34dlbu" path="res://main/scripts/enemy_spawner.gd" id="1_ewccc"]
+[ext_resource type="PackedScene" uid="uid://ylx1p57yo807" path="res://main/scenes/enemy.tscn" id="2_1clhh"]
+
+[node name="Enemy_Spawner" type="Node2D"]
+script = ExtResource("1_ewccc")
+enemy_scene = ExtResource("2_1clhh")
+spawn_radius = 400.0
